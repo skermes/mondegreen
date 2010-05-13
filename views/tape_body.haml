@@ -6,5 +6,6 @@
 	- @songs.each_index do |n|
 		%li{ :id => "item_#{n}" }
 			%a.play_link{ :id => "play_#{n}", :href => "http://www.youtube.com/v/#{@songs[n][0]}?enablejsapi=1&playerapiid=ytplayer" }= @songs[n][1]
+			%img{ :src => "buffering.gif" }
 			
 %div#ytapiplayer

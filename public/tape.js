@@ -1,6 +1,7 @@
 player = { yt: null,
 		   is_playing: false,
-		   current: null };
+		   current: null,
+		   initialized: false };
 
 function ytPlayerStateChanged(state) {
 	if (player.yt) {
@@ -10,13 +11,17 @@ function ytPlayerStateChanged(state) {
 			$(".play_link[href='" + player.current + "']").parent().next().children(":first").click();
 		}
 		else if (state == 1) { // playing
+			$(".play_link[href='" + player.current + "']").parent().children("img").removeClass("buffering");
 		}
 		else if (state == 2) { // paused
 		}
 		else if (state == 3) { // buffering
+			$(".play_link[href='" + player.current + "']").parent().children("img").addClass("buffering");
 		}
 		else if (state == 5) { // cued, ready to play
-			player.yt.playVideo();
+			if (player.initialized) {
+				player.yt.playVideo();
+			}
 		}
 	}
 }
@@ -42,7 +47,7 @@ function linkClicked(e) {
 			player.yt.playVideo();
 			player.is_playing = true;
 		}
-	}	
+	}
 }
 
 function listClicked(e) {
@@ -52,8 +57,11 @@ function listClicked(e) {
 function onYouTubePlayerReady(playerid) {
 	player.yt = document.getElementById("myytplayer");
 	player.yt.addEventListener("onStateChange", "ytPlayerStateChanged");
-	$(".play_link").click(linkClicked);	
-	$(".play_link").parent().click(listClicked);
+	var links = $(".play_link");
+	links.click(linkClicked);	
+	links.parent().click(listClicked);
+	player.initialized = true;
+	links.first().click();
 }
 
 function init() {

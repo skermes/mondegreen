@@ -1,3 +1,7 @@
+ul { 
+	padding-left: 0;
+}
+
 li {
 	list-style-type: decimal;
 	list-style-position: inside;
@@ -5,6 +9,7 @@ li {
 	font-weight: bold;
 	font-size: 120%;	
 	cursor: pointer;
+	margin-left: 0;
 }
 
 li:hover {
@@ -18,4 +23,13 @@ a, a:visited {
 
 li.current_song {
 	background-color: #eee;
+}
+
+img { 
+	display: none;
+	float: right;
+}
+
+img.buffering {
+	display: inline-block;
 }
