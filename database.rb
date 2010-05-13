@@ -8,9 +8,9 @@ def random_tapes(n)
 	database.execute("select name, color from tape order by random() limit #{n};")
 end
 
-def create_new_tape(name, description, songs)
+def create_new_tape(name, description, color, songs)
 	db = database
-	db.execute("insert into tape (name, description) values ('#{name}', '#{description}');")
+	db.execute("insert into tape (name, description, color) values ('#{name}', '#{description}', '#{color}');")
 	tape_id = db.execute("select id from tape where name = '#{name}';")[0][0]	
 	songs.each_index do |n|
 		db.execute("insert into song (yt_code, name) values ('#{songs[n][0]}', '#{songs[n][1].delete '\''}');")

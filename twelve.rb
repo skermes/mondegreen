@@ -19,7 +19,8 @@ get '/' do
 	render_master :splash_head, :splash_body
 end
 
-get '/create' do
+get '/create' do	
+	@color = "hsl(#{rand 360}, 80%, 80%)"
 	render_master :create_head, :create_body
 end
 
@@ -32,7 +33,7 @@ post '/create' do
 		watch_page =~ $yt_title_regex
 		[code, $1]
 	end
-	create_new_tape(name, params[:description], songs)
+	create_new_tape(name, params[:description], params[:color], songs)
 	
 	redirect "/#{name}", 303 # http://www.gittr.com/index.php/archive/details-of-sinatras-redirect-helper/
 end

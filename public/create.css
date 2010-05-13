@@ -46,3 +46,7 @@ input[type="submit"] {
 	background-color: #fff;
 	border: none;
 }
+
+input[name="color"], label[for="color"], #color {
+	display: none;
+}

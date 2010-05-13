@@ -1,5 +1,7 @@
 %h1 Twelve Songs
 %form{ :method => "post", :action => "create" }
+	%label{ :for => "color" } color
+	%input#color{ :type => "text", :name => "color", :value => @color }
 	%label{ :for => "name" } name
 	%input#name{ :type => "text", :name => "name" }
 	%label{ :for => "description" } description
