@@ -20,7 +20,7 @@ get '/' do
 end
 
 get '/create' do
-	render_master '', :create_body
+	render_master :create_head, :create_body
 end
 
 post '/create' do
