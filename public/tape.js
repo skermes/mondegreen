@@ -4,9 +4,10 @@ player = { yt: null,
 
 function ytPlayerStateChanged(state) {
 	if (player.yt) {
-		if (state == -1) { // unstarted
+		if (state == -1) { // unstarted	
 		}
-		else if (state == 0) { // ended
+		else if (state == 0) { // ended	
+			$(".play_link[href='" + player.current + "']").parent().next().children(":first").click();
 		}
 		else if (state == 1) { // playing
 		}
