@@ -1,0 +1,10 @@
+%form{ :method => "post", :action => "create" }
+	name:
+	%input{ :type => "text", :name => "name" }
+	description:
+	%input{ :type => "text", :name => "description" }
+	%ul
+		- (1..12).each do |n|
+			%li
+				%input{ :type => "text", :name => "song_#{n}" }
+	%input{ :type => "submit" }

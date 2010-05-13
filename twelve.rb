@@ -12,5 +12,9 @@ end
 
 get '/' do
 	@tapes = random_tapes 100 
-	render_master('', :splash_body)
+	render_master '', :splash_body
+end
+
+get '/create' do
+	render_master '', :create_body
 end
