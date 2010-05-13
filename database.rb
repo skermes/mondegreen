@@ -5,7 +5,7 @@ def database()
 end
 
 def random_tapes(n)
-	database.execute("select name from tape order by random() limit #{n};").collect { |row| row[0] }
+	database.execute("select name, color from tape order by random() limit #{n};")
 end
 
 def create_new_tape(name, description, songs)

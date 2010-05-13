@@ -1,5 +1,5 @@
 %h1 Twelve Songs
 %ul
-	- @tapes.each do |name|
-		%li
+	- @tapes.each do |name,color|
+		%li{ :style => "background-color: #{color}" }
 			%a{ :href => name }= name
