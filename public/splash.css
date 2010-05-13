@@ -5,7 +5,7 @@
 
 h1 {
 	font-size: 300%;
-	margin-bottom: 1em;
+	margin-bottom: .4em;
 }
 
 li {
@@ -21,4 +21,10 @@ li {
 a, a:hover, a:visited, a:active {
 	color: #000;
 	text-decoration: none;
+}
+
+#create_link {
+	display: block;
+	margin-bottom: 1em;
+	text-align: center;
 }
