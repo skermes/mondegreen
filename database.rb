@@ -29,3 +29,7 @@ def songs_by_tape(tape)
 					  where tape.name = '#{tape}'
 					  order by play.[order]")
 end
+
+def tape_info(tape)
+	database.execute("select tape.name, tape.description, tape.color from tape where tape.name = '#{tape}';").flatten
+end

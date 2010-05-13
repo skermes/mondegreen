@@ -40,5 +40,6 @@ end
 
 get '/:name' do
 	@songs = songs_by_tape(params[:name])
+	@info = tape_info(params[:name])
 	render_master :tape_head, :tape_body
 end

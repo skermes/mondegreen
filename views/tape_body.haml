@@ -1,6 +1,10 @@
-%ul.playlist
+%div#header{ :style => "background-color: #{@info[2]}" }
+	%h2= @info[0]
+	%h3= @info[1]
+	
+%ol.playlist
 	- @songs.each_index do |n|
-		%li
+		%li{ :id => "item_#{n}" }
 			%a.play_link{ :id => "play_#{n}", :href => "http://www.youtube.com/v/#{@songs[n][0]}?enablejsapi=1&playerapiid=ytplayer" }= @songs[n][1]
 			
 %div#ytapiplayer

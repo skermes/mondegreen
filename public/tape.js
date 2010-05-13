@@ -31,6 +31,8 @@ function linkClicked(e) {
 			player.current = href;
 			player.is_playing = true;
 			player.yt.loadVideoByUrl(href);
+			$(".play_link").parent().removeClass("current_song");
+			$("#" + e.target.id).parent().addClass("current_song");
 		}
 		else if (player.is_playing) {			
 			player.yt.pauseVideo();
@@ -43,10 +45,15 @@ function linkClicked(e) {
 	}	
 }
 
+function listClicked(e) {
+	$("#" + e.target.id).children(":first").click();
+}
+
 function onYouTubePlayerReady(playerid) {
 	player.yt = document.getElementById("myytplayer");
 	player.yt.addEventListener("onStateChange", "ytPlayerStateChanged");
-	$(".play_link").click(linkClicked);
+	$(".play_link").click(linkClicked);	
+	$(".play_link").parent().click(listClicked);
 }
 
 function init() {
@@ -55,7 +62,7 @@ function init() {
 	
 	var firsturl = $(".play_link").attr("href");
 	
-	swfobject.embedSWF(firsturl, "ytapiplayer", "425", "356", "8", null, null, params, attrs);
+	swfobject.embedSWF(firsturl, "ytapiplayer", "0", "0", "8", null, null, params, attrs);
 }
 
 $(document).ready(init);
