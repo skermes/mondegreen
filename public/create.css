@@ -1,1 +1,48 @@
- 
+* {
+	max-width: 400px;
+	margin: auto;
+} 
+
+input[type="text"] {
+	border: solid 1px #000;
+	margin: 2px;
+}
+
+input[name="name"], input[name="description"] {
+	float: right;
+	clear: right;
+	width: 75%;
+}
+
+label {
+	float: left;
+	clear: left;
+	line-height: 1.5em;
+}
+
+ul {
+	margin: 1em;
+	width: 100%;
+	float: left;
+	padding-left: 0;
+}
+
+li {
+	list-style-type: none;
+	list-style-position: inside;
+	width: 100%;
+	margin-left: 0;
+}
+
+li input {
+	width: 100%;
+}
+
+input[type="submit"] {
+	padding: .3em;
+	display: block;
+	margin: auto;
+	font-size: 120%;
+	background-color: #fff;
+	border: none;
+}

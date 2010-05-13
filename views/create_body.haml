@@ -1,8 +1,10 @@
+%h1 Twelve Songs
 %form{ :method => "post", :action => "create" }
-	name:
-	%input{ :type => "text", :name => "name" }
-	description:
-	%input{ :type => "text", :name => "description" }
+	%label{ :for => "name" } name
+	%input#name{ :type => "text", :name => "name" }
+	%label{ :for => "description" } description
+	%input#description{ :type => "text", :name => "description" }
+	
 	%ul
 		- (1..12).each do |n|
 			%li
