@@ -20,11 +20,11 @@ def create_new_tape(name, description, songs)
 end
 
 def songs_by_tape(tape)
-	database.execute("select song.yt_code 
+	database.execute("select song.yt_code, song.name
 					  from song
 					  join play
 					  on song.id = play.songid
 					  join tape
 					  on tape.id = play.tapeid
-					  order by play.[order]").flatten
+					  order by play.[order]")
 end
