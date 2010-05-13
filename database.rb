@@ -26,5 +26,6 @@ def songs_by_tape(tape)
 					  on song.id = play.songid
 					  join tape
 					  on tape.id = play.tapeid
+					  where tape.name = '#{tape}'
 					  order by play.[order]")
 end
