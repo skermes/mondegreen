@@ -1,5 +1,24 @@
+* {
+	max-width: 400px;
+	margin: auto;
+}
 
+h1 {
+	font-size: 300%;
+	margin-bottom: 1em;
+}
 
 li {
 	display: inline-block;
+	padding: .5em;
+	margin: 0;
+	border-width: 0;
+	outline-width: 0;
+	list-style-type: none;
+	list-style-position: inside;
+}
+
+a, a:hover, a:visited, a:active {
+	color: #000;
+	text-decoration: none;
 }
