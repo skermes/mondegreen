@@ -1,3 +1,6 @@
-%ul
-	- @songs.each do |id|
-		%li= id
+%ul.playlist
+	- @songs.each_index do |n|
+		%li
+			%a.play_link{ :id => "play_#{n}", :href => "http://www.youtube.com/v/#{@songs[n]}?enablejsapi=1&playerapiid=ytplayer" } play
+			
+%div#ytapiplayer
