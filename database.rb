@@ -19,3 +19,13 @@ def create_new_tape(name, description, song_codes)
 		db.execute("insert into play (tapeid, songid, [order]) values (#{tape_id}, #{song_id}, #{n});")
 	end
 end
+
+def songs_by_tape(tape)
+	database.execute("select song.yt_code 
+					  from song
+					  join play
+					  on song.id = play.songid
+					  join tape
+					  on tape.id = play.tapeid
+					  order by play.[order]").flatten
+end

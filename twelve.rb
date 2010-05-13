@@ -33,5 +33,5 @@ post '/create' do
 end
 
 get '/:name' do
-	"you have a tape named #{params[:name]}"
+	songs_by_tape(params[:name])
 end
