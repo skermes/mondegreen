@@ -11,4 +11,4 @@
 		- (1..12).each do |n|
 			%li
 				%input{ :type => "text", :name => "song_#{n}" }
-	%input{ :type => "submit" }
+	%input{ :type => "submit", :style => "background-color: #{@color}" }

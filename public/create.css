@@ -3,7 +3,7 @@
 	margin: auto;
 } 
 
-input[type="text"] {
+input {
 	border: solid 1px #000;
 	margin: 2px;
 }
@@ -43,8 +43,15 @@ input[type="submit"] {
 	display: block;
 	margin: auto;
 	font-size: 120%;
-	background-color: #fff;
-	border: none;
+	color: #fff;
+}
+
+input[type="submit"]:hover {
+	color: #000;
+}
+
+input[type="submit"]:active {
+	background-color: #fff !important;
 }
 
 input[name="color"], label[for="color"], #color {
