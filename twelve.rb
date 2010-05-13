@@ -33,5 +33,6 @@ post '/create' do
 end
 
 get '/:name' do
-	songs_by_tape(params[:name])
+	@songs = songs_by_tape(params[:name])
+	render_master :tape_head, :tape_body
 end
