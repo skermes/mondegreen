@@ -2,6 +2,8 @@ require 'rubygems'
 require 'sinatra'
 require 'haml'
 
+require 'database'
+
 def render_master(head, body)
 	@head = head
 	@body = body
@@ -9,6 +11,6 @@ def render_master(head, body)
 end
 
 get '/' do
-	@tapes = ['one', 'two']
+	@tapes = random_tapes 100 
 	render_master('', :splash_body)
 end
