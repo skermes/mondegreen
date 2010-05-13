@@ -3,9 +3,9 @@
 	%label{ :for => "color" } color
 	%input#color{ :type => "text", :name => "color", :value => @color }
 	%label{ :for => "name" } name
-	%input#name{ :type => "text", :name => "name" }
+	%input#name{ :type => "text", :name => "name", :style => "background-color: #{@color}" }
 	%label{ :for => "description" } description
-	%input#description{ :type => "text", :name => "description" }
+	%input#description{ :type => "text", :name => "description", :style => "background-color: #{@color}" }
 	
 	%ul
 		- (1..12).each do |n|

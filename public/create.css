@@ -8,10 +8,10 @@ input[type="text"] {
 	margin: 2px;
 }
 
-input[name="name"], input[name="description"] {
+input[name="name"], input[name="description"], input[name="color"] {
 	float: right;
 	clear: right;
-	width: 75%;
+	width: 75%;	
 }
 
 label {
