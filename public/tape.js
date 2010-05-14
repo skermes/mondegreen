@@ -4,7 +4,7 @@ player = { yt: null,
 		   initialized: false };
 
 function ytPlayerStateChanged(state) {
-	if (player.yt) {
+	if (player.yt && player.initialized) {
 		if (state == -1) { // unstarted	
 		}
 		else if (state == 0) { // ended	
@@ -18,10 +18,8 @@ function ytPlayerStateChanged(state) {
 		else if (state == 3) { // buffering
 			$(".play_link[href='" + player.current + "']").parent().children("img").addClass("buffering");
 		}
-		else if (state == 5) { // cued, ready to play
-			if (player.initialized) {
-				player.yt.playVideo();
-			}
+		else if (state == 5) { // cued, ready to play			
+			player.yt.playVideo();			
 		}
 	}
 }
@@ -71,11 +69,15 @@ function init_youtube() {
 	swfobject.embedSWF(firsturl, "ytapiplayer", "0", "0", "8", null, null, params, attrs);
 }
 
+function human_time(time) {
+	var minutes = Math.floor(time / 60);
+	var seconds = time - (minutes * 60);
+	return minutes + ":" + seconds;
+}
+
 function format_times() {
-	$(".time").text(function(i, time) {
-		var minutes = Math.floor(time / 60);
-		var seconds = time - (minutes * 60);
-		return minutes + ":" + seconds;
+	$(".duration").text(function(i, time) {
+		return human_time(time);
 	});
 }
 
