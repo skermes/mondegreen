@@ -18,7 +18,7 @@ function ytPlayerStateChanged(state) {
 			$(".play_link[href='" + player.current + "']").parent().next().children(":first").click();
 		}
 		else if (state == 1) { // playing
-			$(".play_link[href='" + player.current + "']").parent().children("img").removeClass("buffering");
+			$("img").removeClass("buffering");
 		}
 		else if (state == 2) { // paused
 		}
@@ -28,18 +28,13 @@ function ytPlayerStateChanged(state) {
 		else if (state == 5) { // cued, ready to play		
 			player.yt.playVideo();
 						
-			if (player.time_interval_id) {
-			
-				clearInterval(player.time_interval_id);
-			
-				player.time_interval_id = null;
-			
-				$(".time").text("");
-			
+			if (player.time_interval_id) {			
+				clearInterval(player.time_interval_id);			
+				player.time_interval_id = null;			
+				$(".time").text("");			
 			}			
 			
-			var timeId = $(".play_link[href='" + player.current + "']").parent().find(".time").first().attr("id");
-			
+			var timeId = $(".play_link[href='" + player.current + "']").parent().find(".time").first().attr("id");			
 			player.time_interval_id = setInterval("updateTime(\"" + timeId + "\")", 1000);
 		}
 	}
