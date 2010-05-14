@@ -1,4 +1,5 @@
-%h1 Twelve Songs
+%a{ :href => "/" }
+	%h1 Twelve Songs
 %form{ :method => "post", :action => "create" }
 	%label{ :for => "color" } color
 	%input#color{ :type => "text", :name => "color", :value => @color }

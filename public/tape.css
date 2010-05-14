@@ -37,3 +37,8 @@ img.buffering {
 	display: inline-block;
 	float: right;
 }
+
+#head_links {
+	float:right;
+	margin-top: -2.3em;
+}

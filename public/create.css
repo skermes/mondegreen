@@ -3,6 +3,11 @@
 	margin: auto;
 } 
 
+a, a:hover, a:visited, a:active {
+	color: #000;
+	text-decoration: none;
+}
+
 input {
 	border: solid 1px #000;
 	margin: 2px;

@@ -1,6 +1,12 @@
 %div#header{ :style => "background-color: #{@info[2]}" }
 	%h2= @info[0]
 	%h3= @info[1]
+	%div#head_links
+		%a{ :href => "/" } home
+		|
+		%a{ :href => "/create" } create
+		|
+		%a{ :href => "/random" } random
 	
 %ol.playlist
 	- @songs.each_index do |n|
