@@ -33,6 +33,7 @@ img.buffering {
 	display: inline-block;
 }
 
-.duration, .time {
+.time_holder {
+	display: inline-block;
 	float: right;
 }

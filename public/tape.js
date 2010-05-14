@@ -1,8 +1,15 @@
 player = { yt: null,
 		   is_playing: false,
 		   current: null,
-		   initialized: false };
+		   initialized: false,
+		   time_interval_id: null };
 
+function updateTime(id) {
+	if (player.yt && player.initialized) {	
+		$("#" + id).text(human_time(player.yt.getCurrentTime()) + " / ");
+	}
+}
+		   
 function ytPlayerStateChanged(state) {
 	if (player.yt && player.initialized) {
 		if (state == -1) { // unstarted	
@@ -18,8 +25,22 @@ function ytPlayerStateChanged(state) {
 		else if (state == 3) { // buffering
 			$(".play_link[href='" + player.current + "']").parent().children("img").addClass("buffering");
 		}
-		else if (state == 5) { // cued, ready to play			
-			player.yt.playVideo();			
+		else if (state == 5) { // cued, ready to play		
+			player.yt.playVideo();
+						
+			if (player.time_interval_id) {
+			
+				clearInterval(player.time_interval_id);
+			
+				player.time_interval_id = null;
+			
+				$(".time").text("");
+			
+			}			
+			
+			var timeId = $(".play_link[href='" + player.current + "']").parent().find(".time").first().attr("id");
+			
+			player.time_interval_id = setInterval("updateTime(\"" + timeId + "\")", 1000);
 		}
 	}
 }
@@ -33,7 +54,7 @@ function linkClicked(e) {
 		if (!player.current || player.current != href) {			
 			player.current = href;
 			player.is_playing = true;
-			player.yt.loadVideoByUrl(href);
+			player.yt.cueVideoByUrl(href);
 			$(".play_link").parent().removeClass("current_song");
 			$("#" + e.target.id).parent().addClass("current_song");
 		}
@@ -71,7 +92,10 @@ function init_youtube() {
 
 function human_time(time) {
 	var minutes = Math.floor(time / 60);
-	var seconds = time - (minutes * 60);
+	var seconds = Math.floor(time - (minutes * 60));
+	if (seconds < 10)
+		seconds = "0" + seconds;
+		
 	return minutes + ":" + seconds;
 }
 
