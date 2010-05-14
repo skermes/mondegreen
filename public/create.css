@@ -1,4 +1,4 @@
-* {
+form {
 	max-width: 400px;
 	margin: auto;
 } 
@@ -6,6 +6,14 @@
 a, a:hover, a:visited, a:active {
 	color: #000;
 	text-decoration: none;
+}
+
+h1 {
+	text-align: center;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: .5em;
 }
 
 input {
