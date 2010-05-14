@@ -37,6 +37,11 @@ post '/create' do
 	redirect "/#{name}", 303 # http://www.gittr.com/index.php/archive/details-of-sinatras-redirect-helper/
 end
 
+get '/random' do
+	name = random_tapes(1)[0][0];
+	redirect "/#{name}", 303
+end
+
 get '/:name' do
 	@songs = songs_by_tape(params[:name])
 	@info = tape_info(params[:name])
