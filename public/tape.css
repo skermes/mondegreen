@@ -26,10 +26,13 @@ li.current_song {
 }
 
 img { 
-	display: none;
-	float: right;
+	display: none;	
 }
 
 img.buffering {
 	display: inline-block;
+}
+
+.time {
+	float: right;
 }

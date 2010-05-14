@@ -64,13 +64,22 @@ function onYouTubePlayerReady(playerid) {
 	links.first().click();
 }
 
-function init() {
+function init_youtube() {
 	var params = { allowScriptAccess: "always" };
-	var attrs = { id: "myytplayer" };
-	
-	var firsturl = $(".play_link").attr("href");
-	
+	var attrs = { id: "myytplayer" };	
+	var firsturl = $(".play_link").attr("href");	
 	swfobject.embedSWF(firsturl, "ytapiplayer", "0", "0", "8", null, null, params, attrs);
 }
 
-$(document).ready(init);
+function format_times() {
+	$(".time").text(function(i, time) {
+		var minutes = Math.floor(time / 60);
+		var seconds = time - (minutes * 60);
+		return minutes + ":" + seconds;
+	});
+}
+
+$(document).ready(function() {
+	init_youtube();
+	format_times();
+});
