@@ -3,6 +3,14 @@ form {
 	margin: auto;
 } 
 
+#create {
+	float: right;
+}
+
+#search {
+	float: left;
+}
+
 a, a:hover, a:visited, a:active {
 	color: #000;
 	text-decoration: none;

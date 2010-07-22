@@ -1,6 +1,10 @@
 %a{ :href => "/" }
 	%h1 Put This Music In Your Head
-%form{ :method => "post", :action => "create" }
+%form#search{ :method => "get", :action => "search" }
+	%input#query{ :type => "text", :name => "query" }
+	%input{ :type => "submit" }
+	%ol#results
+%form#create{ :method => "post", :action => "create" }
 	%label{ :for => "color" } color
 	%input#color{ :type => "text", :name => "color", :value => @color }
 	%label{ :for => "name" } name
@@ -11,5 +15,5 @@
 	%ul
 		- (1..12).each do |n|
 			%li
-				%input{ :type => "text", :name => "song_#{n}" }
+				%input.songinput{ :type => "text", :name => "song_#{n}" }
 	%input{ :type => "submit", :style => "background-color: #{@color}" }
