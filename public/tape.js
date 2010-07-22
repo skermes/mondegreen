@@ -15,7 +15,7 @@ function ytPlayerStateChanged(state) {
 		if (state == -1) { // unstarted	
 		}
 		else if (state == 0) { // ended	
-			$(".play_link[href='" + player.current + "']").parent().next().children(":first").click();
+			playNext();
 		}
 		else if (state == 1) { // playing
 			$("img").removeClass("buffering");
@@ -39,7 +39,26 @@ function ytPlayerStateChanged(state) {
 		}
 	}
 }
-		   
+
+function playNext() { 
+	$(".play_link[href='" + player.current + "']").parent().next().children(":first").click();
+}
+
+function playPrev() {
+	$(".play_link[href='" + player.current + "']").parent().prev().children(":first").click();
+}
+
+function togglePause() {
+	if (player.is_playing) {
+		player.yt.pauseVideo();
+	}
+	else {
+		player.yt.playVideo();
+	}
+	
+	player.is_playing = !player.is_playing;
+}
+   
 function linkClicked(e) {
 	e.preventDefault();
 
@@ -53,13 +72,8 @@ function linkClicked(e) {
 			$(".play_link").parent().removeClass("current_song");
 			$("#" + e.target.id).parent().addClass("current_song");
 		}
-		else if (player.is_playing) {			
-			player.yt.pauseVideo();
-			player.is_playing = false;
-		}
 		else {
-			player.yt.playVideo();
-			player.is_playing = true;
+			togglePause();
 		}
 	}
 }
@@ -100,7 +114,24 @@ function format_times() {
 	});
 }
 
+function routeKeyboard(code) {	
+	switch (code) {
+		case 32: // space
+			togglePause();
+			break;
+		case 37: // left
+		case 38: // up
+			playPrev();
+			break;
+		case 39: // right
+		case 40: // down
+			playNext();
+			break;
+	}
+}
+
 $(document).ready(function() {
 	init_youtube();
 	format_times();
+	$(document).keyup(function (event) { routeKeyboard(event.keyCode); });
 });
