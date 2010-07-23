@@ -16,7 +16,10 @@ def render_master(head, body)
 	@head = head
 	@body = body
 	@maincolor = [random_color, 'GREEN']
-	@backgroundimg = 'heads1.jpg'
+	
+	imgs = Dir.new('public/img').entries
+	imgs = imgs[2..imgs.length]
+	@backgroundimg = imgs[rand(imgs.length)]
 	haml :master
 end
 
