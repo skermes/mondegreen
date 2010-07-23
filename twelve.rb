@@ -8,9 +8,15 @@ require 'youtube'
 
 $yt_url_regex = /(http:\/\/)?(www\.)?youtube\.com\/watch\?v=(.{11})/
 
+def random_color()
+	"hsl(#{rand 360}, 80%, 80%)"
+end
+
 def render_master(head, body)
 	@head = head
 	@body = body
+	@maincolor = [random_color, 'GREEN']
+	@backgroundimg = 'heads1.jpg'
 	haml :master
 end
 
@@ -20,7 +26,7 @@ get '/' do
 end
 
 get '/create' do	
-	@color = "hsl(#{rand 360}, 80%, 80%)"
+	@color = random_color
 	render_master :create_head, :create_body
 end
 
