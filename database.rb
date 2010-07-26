@@ -1,7 +1,7 @@
 require 'SQLite3'
 
 def database()
-	SQLite3::Database.new('twelve.database')
+	SQLite3::Database.new('mondegreen.database')
 end
 
 def random_tapes(n)
