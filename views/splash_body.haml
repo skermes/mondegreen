@@ -1,7 +1,9 @@
 %h1
-	%%a{ :href => "/" } this is MONDE
-	%span{ :style => "color:#{@maincolor[0]}" } 
-		=@maincolor[1]
+	%a{ :href => "/" } 
+		%span#titlepre<
+			this is MONDE
+		%span{ :style => "color:#{@maincolor[0]}" }<
+			=@maincolor[1]
 %h3
 	%a#create_link{ :href => "create" } DIY
 %div#headercontainer

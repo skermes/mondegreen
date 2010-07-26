@@ -15,7 +15,7 @@ function displaysearch(data, status) {
 	var list = $('#results');
 	list.children().remove();
 	for (var i = 0; i < data.feed.entry.length; i++) {
-		list.append('<li class="resultlink" id="' + vidUrl(data.feed.entry[i].id.$t) + '">' + data.feed.entry[i].title.$t + '</li>');
+		list.append('<li class="resultlink" id="' + vidUrl(data.feed.entry[i].id.$t) + '"><span>' + data.feed.entry[i].title.$t + '</span></li>');
 	}
 	
 	$('.resultlink').click(addsong);

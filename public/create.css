@@ -1,80 +1,78 @@
-form {
-	max-width: 400px;
-	margin: auto;
-} 
-
-#create {
-	float: right;
-}
-
-#search {
-	float: left;
-}
-
 a, a:hover, a:visited, a:active {
 	color: #000;
 	text-decoration: none;
 }
 
-h1 {
-	text-align: center;
-	max-width: 600px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: .5em;
-}
-
-input {
-	border: solid 1px #000;
-	margin: 2px;
-}
-
-input[name="name"], input[name="description"], input[name="color"] {
-	float: right;
-	clear: right;
-	width: 75%;	
+form {
+	float:left;
+	margin-right:2em;
 }
 
 label {
-	float: left;
-	clear: left;
-	line-height: 1.5em;
+	background:#fff;
+	padding:.1em .5em;
+	float:left;
 }
 
-ul {
-	margin: 1em;
-	width: 100%;
-	float: left;
-	padding-left: 0;
+#create {
+	text-align:center;
+	padding:0;
+}
+
+#create label[for='color'] {
+	display:none;
+}
+
+#create #color {
+	display:none;
+}
+
+#create > input[type='text'] {
+	float:right;
+}
+
+#create input[type='submit'] {	
+	float:right;
+}
+
+ul input[type='text'] {
+	margin-right:-5em;
 }
 
 li {
-	list-style-type: none;
-	list-style-position: inside;
-	width: 100%;
-	margin-left: 0;
+	list-style-type:none;
 }
 
-li input {
-	width: 100%;
+input[type='text'] {
+	border:1px solid #000;
 }
 
-input[type="submit"] {
-	padding: .3em;
-	display: block;
-	margin: auto;
-	font-size: 120%;
-	color: #fff;
+input[type='submit'] {
+	border:1px solid #000;
+	font-size:200%;
 }
 
-input[type="submit"]:hover {
-	color: #000;
+#search input[type='submit'] {	
+	background:#fff;
 }
 
-input[type="submit"]:active {
-	background-color: #fff !important;
+#search input[type='text'] {
+	font-size:200%;
 }
 
-input[name="color"], label[for="color"], #color {
-	display: none;
+#search ol {
+	margin-left:0;
+	padding-left:0;
+}
+
+.resultlink {
+	background:#fff;
+	margin: .3em 0;
+	padding: 0 .3em;
+	border: 1px solid #000;
+}
+
+.resultlink:hover {
+	background: hsl(120, 80%, 80%);
+	cursor:hand;
 }

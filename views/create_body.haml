@@ -1,14 +1,16 @@
-%a{ :href => "/" }
-	%h1 Put This Music In Your Head
-%form#search{ :method => "get", :action => "search" }
-	%input#query{ :type => "text", :name => "query" }
-	%input{ :type => "submit" }
-	%ol#results
+%div
+	%h1
+		%a{ :href => "/" }
+			%span#titlepre<
+				this is MONDE
+			%span{ :style => "color:#{@maincolor[0]}" }<
+				=@maincolor[1]
 %form#create{ :method => "post", :action => "create" }
 	%label{ :for => "color" } color
 	%input#color{ :type => "text", :name => "color", :value => @color }
 	%label{ :for => "name" } name
 	%input#name{ :type => "text", :name => "name", :style => "background-color: #{@color}" }
+	%br
 	%label{ :for => "description" } description
 	%input#description{ :type => "text", :name => "description", :style => "background-color: #{@color}" }
 	
@@ -16,4 +18,8 @@
 		- (1..12).each do |n|
 			%li
 				%input.songinput{ :type => "text", :name => "song_#{n}" }
-	%input{ :type => "submit", :style => "background-color: #{@color}" }
+	%input{ :type => "submit", :style => "background-color: #{@color}", :value => 'create' }
+%form#search{ :method => "get", :action => "search" }
+	%input#query{ :type => "text", :name => "query" }
+	%input{ :type => "submit", :value => 'search' }
+	%ol#results

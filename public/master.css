@@ -10,3 +10,19 @@ body {
 	width:100%; 
 	z-index:-1;
 }
+
+h1 {
+	font-size:400%;
+	display:inline-block;
+	background:#fff;
+}
+
+h2 {
+	font-size:300%;            
+	background:#fff;
+	display:inline-block;
+}
+
+#titlepre {
+	margin-right:-.3em;
+}

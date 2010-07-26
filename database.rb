@@ -33,3 +33,7 @@ end
 def tape_info(tape)
 	database.execute("select tape.name, tape.description, tape.color from tape where tape.name = '#{tape}';").flatten
 end
+
+def db_random_color()
+	database.execute('select value, name from colors order by random() limit 1;')[0]
+end
