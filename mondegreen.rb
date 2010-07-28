@@ -6,8 +6,6 @@ require 'net/http'
 require 'database'
 require 'youtube'
 
-$yt_url_regex = /(http:\/\/)?(www\.)?youtube\.com\/watch\?v=(.{11})/
-
 def render_master(head, body)
 	@head = head
 	@body = body
@@ -33,10 +31,8 @@ end
 post '/create' do
 	name = params[:name].delete " \t\r\n"
 	songs = (1..12).collect do |n|
-		params["song_#{n}"] =~ $yt_url_regex
-		code = $3
-		info = MondeYoutube.get_song_info(code)
-		[code, info[:title], info[:duration]]
+		info = MondeYoutube.get_song_info params["song_#{n}"]
+		[info[:id], info[:title], info[:duration]]
 	end
 	MondeBase.create_new_tape(name, params[:description], params[:color], songs)
 	
