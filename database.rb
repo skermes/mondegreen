@@ -6,6 +6,10 @@ module Mondegreen
 			@dbname = dbname
 		end
 		
+		def to_s()
+			"Mondegreen database interface around instance: #{@dbname}"
+		end
+		
 		def database()
 			SQLite3::Database.new(@dbname)
 		end
