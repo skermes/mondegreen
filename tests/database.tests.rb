@@ -62,4 +62,20 @@ class TestDatabase < Test::Unit::TestCase
                       'blue' => '#0000FF' }
         assert_equal(reference[color[1]], color[0])
     end
+    
+    def test_create_tape()
+        name = 'stars'
+        description = '... and let me staaaay'
+        color = '#fab3a7'
+        songs = [['onetwothre', 'Take Me To The Riot', '234'],
+                 ['efourfives', 'The Night Starts Here', '221']]
+        @database.create_new_tape(name, description, color, songs)
+        
+        info = @database.tape_info name
+        assert_equal(name, info[0])
+        assert_equal(description, info[1])
+        assert_equal(color, info[2])
+        
+        assert_equal(songs, @database.songs_by_tape(name))
+    end
 end
