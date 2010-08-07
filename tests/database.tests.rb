@@ -78,4 +78,12 @@ class TestDatabase < Test::Unit::TestCase
         
         assert_equal(songs, @database.songs_by_tape(name))
     end
+    
+    def test_injection()        
+        name = "' drop table my_table; --"
+        assert_nothing_raised() do
+            info = @database.tape_info(name)
+            assert_equal(nil, info)
+        end        
+    end
 end
