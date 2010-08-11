@@ -11,4 +11,4 @@
 %ul
 	- @tapes.each do |name,color|
 		%li{ :style => "background-color: #{color}" }
-			%a{ :href => name }= name
+			%a{ :href => "listen/#{name}" }= name

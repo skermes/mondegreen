@@ -45,10 +45,10 @@ end
 
 get '/random' do
 	name = database.random_tapes(1)[0][0];
-	redirect "/#{name}", 303
+	redirect "/listen/#{name}", 303
 end
 
-get '/:name' do
+get '/listen/:name' do
 	@songs = database.songs_by_tape(params[:name])
 	@info = database.tape_info(params[:name])
 	render_master :tape_head, :tape_body

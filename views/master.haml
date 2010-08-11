@@ -1,8 +1,8 @@
 %html
 	%head
 		%title this is MONDEGREEN
-		%link{ :rel => "stylesheet", :type => "text/css", :href => "master.css" }
+		%link{ :rel => "stylesheet", :type => "text/css", :href => "/master.css" }
 		= haml @head
 	%body
-		%img#background{ :src => "img/#{@backgroundimg}" }
+		%img#background{ :src => "/img/#{@backgroundimg}" }
 		= haml @body
