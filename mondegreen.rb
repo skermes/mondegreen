@@ -66,7 +66,7 @@ get %r{/listen/(\w+)\.json} do
         "songs" : [#{(songs.collect do |song|
                         %{{ "youtube_id" : "#{clean song[0]}",
                             "name" : "#{clean song[1]}",
-                            "duration" : "#{song[2]}" }}
+                            "duration" : #{song[2]} }}
                      end).join(',')}] }}
 end
 
