@@ -22,6 +22,10 @@ def render_master(head, body)
     haml :master
 end
 
+def clean(str)
+    str.gsub '"', '\"'
+end
+
 get '/' do
     @tapes = database.random_tapes 100 
     render_master :splash_head, :splash_body
@@ -56,12 +60,12 @@ get %r{/listen/(\w+)\.json} do
     # bit I really couldn't resist.
     # http://en.wikibooks.org/wiki/Ruby_Programming/Syntax/Literals#The_.25_Notation
     # for an explanation.
-    %{{ "name" : "#{info[0]}",
-        "description" : "#{info[1]}",
-        "color" : "#{info[2]}",
+    %{{ "name" : "#{clean info[0]}",
+        "description" : "#{clean info[1]}",
+        "color" : "#{clean info[2]}",
         "songs" : [#{(songs.collect do |song|
-                        %{{ "youtube_id" : "#{song[0]}",
-                            "name" : "#{song[1]}",
+                        %{{ "youtube_id" : "#{clean song[0]}",
+                            "name" : "#{clean song[1]}",
                             "duration" : "#{song[2]}" }}
                      end).join(',')}] }}
 end
